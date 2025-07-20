@@ -35,8 +35,8 @@ const Welcome: React.FC<{ mode: Mode }> = ({ mode }) => {
                     <config.Icon className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-base sm:text-lg text-[var(--text-base)] mb-2 break-words">{t(`modes.${m}.name`)}</h3>
-                    <p className="text-sm text-[var(--text-muted)] leading-relaxed break-words card-text">{t(`modes.${m}.description`)}</p>
+                    <h3 className="font-bold text-base sm:text-lg text-[var(--text-base)] mb-2 break-words force-wrap">{t(`modes.${m}.name`)}</h3>
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed break-words card-text force-wrap">{t(`modes.${m}.description`)}</p>
                   </div>
                 </div>
               </div>
