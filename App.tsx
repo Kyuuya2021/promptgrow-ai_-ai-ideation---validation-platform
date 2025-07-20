@@ -281,7 +281,7 @@ const AppContent: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative h-screen w-screen flex overflow-hidden">
+    <div className="relative h-screen w-screen flex overflow-hidden mobile-container">
       {isSidebarOpen && <div onClick={toggleSidebar} className="fixed inset-0 bg-black/60 z-20 md:hidden" />}
       <HistoryPanel
         isSidebarOpen={isSidebarOpen}
@@ -297,7 +297,7 @@ const AppContent: React.FC = () => {
         sidebarWidth={sidebarWidth}
         setSidebarWidth={setSidebarWidth}
       />
-      <main className="flex-1 flex flex-col h-full bg-[var(--bg-surface)] transition-all duration-300">
+      <main className="flex-1 flex flex-col h-full bg-[var(--bg-surface)] transition-all duration-300 mobile-container">
         <div className="flex-shrink-0 flex items-center bg-[var(--bg-surface-translucent)] backdrop-blur-lg border-b border-[var(--border-base)] z-10 min-h-[44px]">
           <button
             onClick={toggleSidebar}

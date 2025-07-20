@@ -26,6 +26,29 @@
         .h-screen-keyboard {
           height: calc(100vh - 50vh);
         }
+        
+        /* iPhone でのテキスト折り返しを強制 */
+        * {
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+        
+        /* カード内のテキストを確実に折り返す */
+        .card-text {
+          word-break: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+          line-height: 1.5;
+        }
+        
+        /* iPhone での最小幅を設定 */
+        .mobile-container {
+          min-width: 0;
+          width: 100%;
+          max-width: 100vw;
+          overflow-x: hidden;
+        }
       }
       
       /* iPhone の横スクロール防止 */
