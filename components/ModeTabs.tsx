@@ -13,7 +13,7 @@ const ModeTabs: React.FC<ModeTabsProps> = ({ currentMode, onModeChange }) => {
 
   return (
     <div className="flex-shrink-0 z-10">
-      <div className="flex space-x-1 sm:space-x-2 p-1 sm:p-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+      <div className="flex space-x-2 p-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
         {Object.values(Mode).map((mode) => {
           const config = MODE_CONFIG[mode];
           const isActive = currentMode === mode;
@@ -21,7 +21,7 @@ const ModeTabs: React.FC<ModeTabsProps> = ({ currentMode, onModeChange }) => {
             <button
               key={mode}
               onClick={() => onModeChange(mode)}
-              className={`relative flex items-center space-x-1.5 sm:space-x-2.5 px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 whitespace-nowrap focus:outline-none focus-visible:ring-2 ring-offset-2 ring-offset-[var(--bg-surface)] ring-[var(--primary)] touch-manipulation ${
+              className={`relative flex items-center space-x-2 px-3 py-2 text-sm font-semibold rounded-lg transition-all duration-300 whitespace-nowrap focus:outline-none focus-visible:ring-2 ring-offset-2 ring-offset-[var(--bg-surface)] ring-[var(--primary)] touch-manipulation min-h-[44px] ${
                 isActive
                   ? 'text-white'
                   : 'text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-base)]'
@@ -34,9 +34,9 @@ const ModeTabs: React.FC<ModeTabsProps> = ({ currentMode, onModeChange }) => {
                   style={{ filter: 'drop-shadow(0 4px 6px hsla(0, 0%, 0%, 0.1))' }}
                 ></span>
               )}
-              <span className="relative z-10 flex items-center gap-1.5 sm:gap-2.5">
-                <config.Icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="hidden xs:inline">{t(`modes.${mode}.name`)}</span>
+              <span className="relative z-10 flex items-center gap-2">
+                <config.Icon className="w-5 h-5" />
+                <span className="hidden sm:inline">{t(`modes.${mode}.name`)}</span>
               </span>
             </button>
           );

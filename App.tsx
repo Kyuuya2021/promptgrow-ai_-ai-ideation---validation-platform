@@ -298,14 +298,14 @@ const AppContent: React.FC = () => {
         setSidebarWidth={setSidebarWidth}
       />
       <main className="flex-1 flex flex-col h-full bg-[var(--bg-surface)] transition-all duration-300">
-        <div className="flex-shrink-0 flex items-center bg-[var(--bg-surface-translucent)] backdrop-blur-lg border-b border-[var(--border-base)] z-10">
+        <div className="flex-shrink-0 flex items-center bg-[var(--bg-surface-translucent)] backdrop-blur-lg border-b border-[var(--border-base)] z-10 min-h-[44px]">
           <button
             onClick={toggleSidebar}
-            className="p-2 sm:p-3 text-[var(--text-muted)] hover:text-[var(--text-base)] transition-colors md:hidden touch-manipulation"
+            className="p-3 text-[var(--text-muted)] hover:text-[var(--text-base)] transition-colors md:hidden touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label={t('historyPanel.openSidebar')}
             title={t('historyPanel.openSidebar')}
           >
-            <MenuIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            <MenuIcon className="w-6 h-6" />
           </button>
           <div className="flex-1 min-w-0">
             <ModeTabs currentMode={mode} onModeChange={handleModeChange} />
