@@ -47,6 +47,21 @@
         -webkit-user-select: text;
         user-select: text;
       }
+      
+      /* スクロールバーを完全に非表示 */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Firefox のスクロールバー非表示 */
+      * {
+        scrollbar-width: none;
+      }
+      
+      /* IE/Edge のスクロールバー非表示 */
+      * {
+        -ms-overflow-style: none;
+      }
     </style>
     <script>
       // Enable class-based dark mode in Tailwind

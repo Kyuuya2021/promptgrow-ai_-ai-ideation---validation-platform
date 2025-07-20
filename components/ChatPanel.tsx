@@ -50,7 +50,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
 
   return (
     <div className="flex-1 flex flex-col bg-[var(--bg-surface)] overflow-hidden relative">
-      <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 space-y-4 sm:space-y-6" style={{ scrollbarColor: "var(--scrollbar-thumb) var(--scrollbar-track)" }}>
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 sm:space-y-6" style={{ scrollbarColor: "var(--scrollbar-thumb) var(--scrollbar-track)", scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {showWelcome ? (
           <Welcome mode={mode} />
         ) : (
@@ -63,7 +63,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
         )}
         <div ref={messagesEndRef} />
       </div>
-      <div className="flex-grow-0 flex-shrink-0 p-2 sm:p-3 md:p-4 pt-2 bg-gradient-to-t from-[var(--bg-surface)] to-transparent">
+      <div className="flex-grow-0 flex-shrink-0 p-3 pt-2 bg-gradient-to-t from-[var(--bg-surface)] to-transparent">
         <div className="max-w-4xl mx-auto">
           <Suggestions
               suggestions={suggestions}
