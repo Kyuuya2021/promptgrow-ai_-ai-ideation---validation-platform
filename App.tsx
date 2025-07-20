@@ -4,9 +4,11 @@ import { Mode, ChatHistory, ColorMode, Theme, Language, Message } from './types'
 import ModeTabs from './components/ModeTabs';
 import ChatPanel from './components/ChatPanel';
 import HistoryPanel from './components/HistoryPanel';
+import Tutorial from './components/Tutorial';
 import { improvePrompt, streamChat, generateSuggestions } from './services/geminiService';
 import { colorPalettes } from './config/themes';
 import { LanguageProvider, useTranslation } from './contexts';
+import { TutorialProvider, useTutorial } from './contexts/TutorialContext';
 import { MenuIcon } from './components/Icons';
 
 const initialHistories = Object.values(Mode).reduce((acc, mode) => {
@@ -69,6 +71,7 @@ const AppContent: React.FC = () => {
   const [colorMode, setColorMode] = useState<ColorMode>(getInitialColorMode);
   const [activeThemeId, setActiveThemeId] = useState<Theme>(getInitialThemeId);
   const { t, language } = useTranslation();
+  const { isTutorialOpen, closeTutorial, markTutorialComplete } = useTutorial();
   
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState<number>(() => getInitialState('promptGrow-sidebarWidth', 288));
@@ -327,6 +330,13 @@ const AppContent: React.FC = () => {
           onFileChange={handleFileChange}
         />
       </main>
+      <Tutorial 
+        isOpen={isTutorialOpen} 
+        onClose={() => {
+          closeTutorial();
+          markTutorialComplete();
+        }} 
+      />
     </div>
   );
 };
@@ -334,7 +344,9 @@ const AppContent: React.FC = () => {
 export default function App() {
     return (
         <LanguageProvider>
-            <AppContent />
+            <TutorialProvider>
+                <AppContent />
+            </TutorialProvider>
         </LanguageProvider>
     );
 }

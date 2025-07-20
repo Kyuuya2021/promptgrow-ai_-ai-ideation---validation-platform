@@ -1,8 +1,9 @@
 
 import React, { useCallback, useEffect } from 'react';
 import { ChatHistory, ColorMode, Theme } from '../types';
-import { PlusIcon, SunIcon, MoonIcon, LogoIcon, GlobeIcon, CheckIcon, XIcon } from './Icons';
+import { PlusIcon, SunIcon, MoonIcon, LogoIcon, GlobeIcon, CheckIcon, XIcon, QuestionMarkCircleIcon } from './Icons';
 import { useTranslation } from '../contexts';
+import { useTutorial } from '../contexts/TutorialContext';
 import { colorPalettes } from '../config/themes';
 import Portfolio from './Portfolio';
 
@@ -36,6 +37,7 @@ const HistoryPanel: React.FC<HistoryPanelProps> = ({
   setSidebarWidth,
 }) => {
   const { t, language, setLanguage } = useTranslation();
+  const { openTutorial } = useTutorial();
 
   const toggleLanguage = () => {
     setLanguage(lang => lang === 'en' ? 'ja' : 'en');
@@ -75,7 +77,17 @@ const HistoryPanel: React.FC<HistoryPanelProps> = ({
             </div>
             <h1 className="text-lg sm:text-xl font-bold text-[var(--text-base)] tracking-tight">{t('historyPanel.title')}</h1>
           </div>
-          <div className='flex items-center'>
+          <div className='flex items-center gap-1'>
+            <button 
+              onClick={openTutorial}
+              className="p-1.5 sm:p-2 rounded-lg text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-base)] transition-colors touch-manipulation"
+              aria-label="チュートリアルを開く"
+              title="チュートリアルを開く"
+            >
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
             <button 
               onClick={onNewChat} 
               className="p-1.5 sm:p-2 rounded-lg text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-base)] transition-colors touch-manipulation"
