@@ -301,13 +301,13 @@ const AppContent: React.FC = () => {
         <div className="flex-shrink-0 flex items-center bg-[var(--bg-surface-translucent)] backdrop-blur-lg border-b border-[var(--border-base)] z-10">
           <button
             onClick={toggleSidebar}
-            className="p-3 text-[var(--text-muted)] hover:text-[var(--text-base)] transition-colors md:hidden"
+            className="p-2 sm:p-3 text-[var(--text-muted)] hover:text-[var(--text-base)] transition-colors md:hidden touch-manipulation"
             aria-label={t('historyPanel.openSidebar')}
             title={t('historyPanel.openSidebar')}
           >
-            <MenuIcon className="w-6 h-6" />
+            <MenuIcon className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <ModeTabs currentMode={mode} onModeChange={handleModeChange} />
           </div>
         </div>
